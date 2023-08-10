@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Services\Example;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/cuidado', function(){
+    Example::$values[] = rand(4,2);
+    dd(Example::$values);
+});
 
 Route::get('/', function () {
     return view('welcome');
